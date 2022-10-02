@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 export default function Home() {
   const [candList, setCandList] = useState([])
   const [lastHt, setLastHt] = useState('-')
+  const [totalAccurated, setTotalAccurated] = useState('-')
 
   useEffect(() => {
     loadResults()
@@ -15,6 +16,7 @@ export default function Home() {
     const result = await response.json()
     setCandList(result.cand)
     setLastHt(result.ht)
+    setTotalAccurated(result.psi)
   }
 
   if(candList.length === 0) return <center>Carregando...</center>
@@ -22,13 +24,14 @@ export default function Home() {
   return (
     <div>
       <h3>Última atualização: {lastHt}</h3>
-
+      <h3>{totalAccurated}% das seções totalizadas</h3>
       <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nome</th>
             <th scope="col">Porcentagem</th>
+            <th scope="col">Votos</th>
           </tr>
         </thead>
         <tbody>
@@ -37,6 +40,7 @@ export default function Home() {
               <th scope="row">{index + 1}</th>
               <td>{cand.nm === 'FELIPE D&apos;AVILA' ? 'FELIPE DÁVILA' : cand.nm}</td>
               <td>{cand.pvap}%</td>
+              <td>{Number(cand.vap).toLocaleString(undefined, {  minimumFractionDigits: 2 })}</td>
             </tr>
           ))}
         </tbody>
