@@ -2,6 +2,17 @@
 import { useEffect, useState } from 'react'
 import { ForkMe } from 'fork-me-corner';
 
+/**
+ * 
+ * @param {string} text 
+ * @returns {string}
+ */
+function decodeHTMLEntities(text) {
+  var textArea = document.createElement('textarea');
+  textArea.innerHTML = text;
+  return textArea.value;
+}
+
 export default function Home() {
   const [candList, setCandList] = useState([])
   const [lastHt, setLastHt] = useState('-')
@@ -20,7 +31,7 @@ export default function Home() {
     setTotalAccurated(result.psi)
   }
 
-  if(candList.length === 0) return <center>Carregando...</center>
+  if (candList.length === 0) return <center>Carregando...</center>
 
   return (
     <div>
@@ -41,7 +52,7 @@ export default function Home() {
           {candList.map((cand, index) => (
              <tr key={cand.nm}>
               <th scope="row">{index + 1}</th>
-              <td>{cand.nm === 'FELIPE D&apos;AVILA' ? 'FELIPE DÁVILA' : cand.nm}</td>
+              <td>{decodeHTMLEntities(cand.nm)}</td>
               <td>
                 <span className="votes-percentage-textval">{cand.pvap}%</span>
                 <progress style={{ display: 'block', width: '100%' }} className="votes-percentage-progress" max="100" value={Number(cand.pvap.replace(',', '.'))}>{cand.pvap}%</progress>
