@@ -15,7 +15,6 @@ export default function Home() {
     const result = await response.json()
     setCandList(result.cand)
     setLastHt(result.ht)
-    console.log("Updated")
   }
 
   if(candList.length === 0) return <center>Carregando...</center>
