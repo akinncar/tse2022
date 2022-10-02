@@ -3,14 +3,21 @@ import { useEffect, useState } from 'react'
 import { ForkMe } from 'fork-me-corner';
 
 /**
- * 
- * @param {string} text 
- * @returns {string}
+ * Decodes HTML entities from strings.
  */
-function decodeHTMLEntities(text) {
+function decodeHTMLEntities(text: string): string {
   var textArea = document.createElement('textarea');
   textArea.innerHTML = text;
   return textArea.value;
+}
+
+/**
+ * An element that centers text.
+ */
+function Center(props) {
+  return <>
+    <div style={{ textAlign: 'center' }}>{props.children}</div>
+  </>
 }
 
 export default function Home() {
@@ -31,7 +38,7 @@ export default function Home() {
     setTotalAccurated(result.psi)
   }
 
-  if (candList.length === 0) return <center>Carregando...</center>
+  if (candList.length === 0) return <Center>Carregando...</Center>
 
   return (
     <div>
@@ -63,12 +70,12 @@ export default function Home() {
         </tbody>
       </table>
 
-      <center>
+      <Center>
         <button onClick={loadResults}>Recarregar resultados</button>
-      </center>
+      </Center>
 
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossOrigin="anonymous" />
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossOrigin="anonymous"></script>
     </div>
   )
 }
