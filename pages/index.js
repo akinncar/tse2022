@@ -28,7 +28,7 @@ export default function Home() {
 
       <h3>Última atualização: {lastHt}</h3>
       <h3>{totalAccurated}% das seções totalizadas</h3>
-      <table class="table">
+      <table className="table table-striped-bg">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -42,7 +42,10 @@ export default function Home() {
              <tr key={cand.nm}>
               <th scope="row">{index + 1}</th>
               <td>{cand.nm === 'FELIPE D&apos;AVILA' ? 'FELIPE DÁVILA' : cand.nm}</td>
-              <td>{cand.pvap}%</td>
+              <td>
+                <span className="votes-percentage-textval">{cand.pvap}%</span>
+                <progress style={{ display: 'block', width: '100%' }} className="votes-percentage-progress" max="100" value={Number(cand.pvap.replace(',', '.'))}>{cand.pvap}%</progress>
+              </td>
               <td>{Number(cand.vap).toLocaleString(undefined, {  minimumFractionDigits: 2 })}</td>
             </tr>
           ))}
