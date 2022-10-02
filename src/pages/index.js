@@ -1,7 +1,17 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import { useEffect, useState } from 'react'
 import { ForkMe } from 'fork-me-corner';
-import { decodeHTMLEntities } from '../lib/decodeHTMLEntities';
+
+/**
+ * 
+ * @param {string} text 
+ * @returns {string}
+ */
+function decodeHTMLEntities(text) {
+  var textArea = document.createElement('textarea');
+  textArea.innerHTML = text;
+  return textArea.value;
+}
 
 export default function Home() {
   const [candList, setCandList] = useState([])
