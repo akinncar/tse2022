@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 
 export default function Home() {
   const [candList, setCandList] = useState([])
+  const [lastHt, setLastHt] = useState('-')
 
   useEffect(() => {
     loadResults()
@@ -13,6 +14,7 @@ export default function Home() {
     const response = await fetch('https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/br/br-c0001-e000544-r.json')
     const result = await response.json()
     setCandList(result.cand)
+    setLastHt(result.ht)
     console.log("Updated")
   }
 
@@ -20,6 +22,8 @@ export default function Home() {
 
   return (
     <div>
+      <h3>Última atualização: {lastHt}</h3>
+
       <table class="table">
         <thead>
           <tr>
