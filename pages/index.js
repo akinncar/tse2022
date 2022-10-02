@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import { useEffect, useState } from 'react'
+import { ForkMe } from 'fork-me-corner';
 
 export default function Home() {
   const [candList, setCandList] = useState([])
@@ -23,6 +24,8 @@ export default function Home() {
 
   return (
     <div>
+      <ForkMe repo="https://github.com/akinncar/tse2022" />
+
       <h3>Última atualização: {lastHt}</h3>
       <h3>{totalAccurated}% das seções totalizadas</h3>
       <table class="table">
