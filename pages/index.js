@@ -31,7 +31,7 @@ export default function Home() {
              <tr key={cand.nm}>
               <th scope="row">{index + 1}</th>
               <td>{cand.nm === 'FELIPE D&apos;AVILA' ? 'FELIPE DÁVILA' : cand.nm}</td>
-              <td>{cand.pvap}</td>
+              <td>{cand.pvap}%</td>
             </tr>
           ))}
         </tbody>
