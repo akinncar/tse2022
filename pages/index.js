@@ -6,16 +6,17 @@ export default function Home() {
 
   useEffect(() => {
     loadResults()
+    setInterval(loadResults, 30000);
   }, [])
 
   async function loadResults() {
     const response = await fetch('https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/br/br-c0001-e000544-r.json')
     const result = await response.json()
-    console.log({result})
     setCandList(result.cand)
+    console.log("Updated")
   }
 
-  console.log({candList})
+  if(candList.length === 0) return <center>Carregando...</center>
 
   return (
     <div>
