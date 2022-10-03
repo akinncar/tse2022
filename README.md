@@ -5,19 +5,33 @@ Os dados utilizado são disponibilizados diretamente pelo [TSE em formato JSON](
 
 ## Começando
 
-Primeiro, rode o ambiente de desenvolviemtno
+### Primeiro passo
+
+Instale as dependências do projeto usando o [Yarn](https://yarnpkg.com/getting-started/install):
+
+```bash
+yarn install
+```
+
+### Primeiro passo
+
+Rode o ambiente de desenvolvimento:
 
 ```bash
 yarn dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
+### Último passo
+
+Por fim, abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
 ## Tecnologias 
 
 O projeto foi criado utilizando:
-- [React](https://pt-br.reactjs.org/)
+
+- [React](https://pt-br.reactjs.org/).
 - [NextJS](https://nextjs.org/).
+- [TypeScript](https://www.typescriptlang.org/).
 
 ## Como contribuir
 
